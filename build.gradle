@@ -1,0 +1,36 @@
+group 'jllavado'
+version '1.0-SNAPSHOT'
+
+
+buildscript {
+    ext.kotlin_version = '1.1.1'
+
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+    }
+}
+
+apply plugin: 'kotlin'
+apply plugin: 'application'
+
+mainClassName = "boenot.BoenotKt"
+
+sourceSets {
+    main.kotlin.srcDirs += 'src/main/boenot'
+}
+
+repositories {
+    mavenCentral()
+    maven {
+        url 'https://dl.bintray.com/wasabifx/wasabifx/'
+    }
+}
+
+dependencies {
+    compile 'org.wasabifx:wasabi:0.3.120'
+    compile 'org.litote.kmongo:kmongo:3.3.5'
+    compile "org.jetbrains.kotlin:kotlin-stdlib-jre8:$kotlin_version"
+}
